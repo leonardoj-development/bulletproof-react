@@ -7,12 +7,10 @@ applyTo: "**"
 ## Core
 - **React 18.3** — concurrent features, Suspense, transitions
 - **TypeScript** — strict mode enabled; absolute imports via `@/` prefix
-- **Vite 5** (react-vite) / **Next.js 14+** (nextjs-app, nextjs-pages)
+- **Vite 5**
 
 ## Routing
-- **react-router v7** — used in react-vite; `createBrowserRouter` + lazy routes
-- **Next.js App Router** — file-based routing under `src/app/`
-- **Next.js Pages Router** — file-based routing under `src/pages/`
+- **react-router v7** — `createBrowserRouter` + lazy routes
 
 ## Server State
 - **@tanstack/react-query ^5.32** — all remote data; `queryOptions`, `useQuery`, `useMutation`
@@ -56,7 +54,7 @@ applyTo: "**"
 ## Utilities
 - **dayjs ^1.11** — date formatting
 - **nanoid ^5.0** — unique ID generation
-- **dompurify ^3.1** (react-vite) / **isomorphic-dompurify** (Next.js) — XSS prevention
+- **dompurify ^3.1** — XSS prevention
 - **marked ^12** — Markdown parsing
 - **@ngneat/falso ^7.2** — fake data generation for tests and MSW seeds
 

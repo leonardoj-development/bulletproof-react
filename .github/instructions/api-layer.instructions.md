@@ -144,19 +144,4 @@ For on-hover prefetch inside a component:
 queryClient.prefetchQuery(getDiscussionQueryOptions(id));
 ```
 
-## Next.js App Router differences
 
-Use `HydrationBoundary` to pass server-prefetched data to the client:
-
-```ts
-// Server component (page.tsx)
-const queryClient = new QueryClient();
-await queryClient.prefetchQuery(getDiscussionsQueryOptions());
-const dehydratedState = dehydrate(queryClient);
-
-return (
-  <HydrationBoundary state={dehydratedState}>
-    <DiscussionsList />
-  </HydrationBoundary>
-);
-```

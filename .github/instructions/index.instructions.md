@@ -23,7 +23,7 @@ Este archivo (`index`) no tiene `applyTo` — se carga on-demand cuando Copilot 
 | [api-layer.instructions.md](api-layer.instructions.md) | Fetchers, queryOptions, React Query hooks, Axios client | `src/features/**/api/**`, `src/lib/api-client.ts` |
 | [state-management.instructions.md](state-management.instructions.md) | React Query, Zustand, React Hook Form + Zod, colocation | cualquier archivo en `src/` |
 | [components.instructions.md](components.instructions.md) | CVA variants, Radix UI, Tailwind, composition patterns | `src/components/**`, `src/features/**/components/**` |
-| [routing.instructions.md](routing.instructions.md) | React Router v7, Next.js App/Pages Router, protected routes | `src/app/router.tsx`, `src/app/routes/**`, `src/pages/**`, `src/config/paths.ts` |
+| [routing.instructions.md](routing.instructions.md) | React Router v7, protected routes | `src/app/router.tsx`, `src/app/routes/**`, `src/config/paths.ts` |
 | [testing.instructions.md](testing.instructions.md) | Vitest, MSW, `renderApp`, integration test patterns | `src/**/__tests__/**`, `src/**/*.test.{ts,tsx}`, `e2e/**` |
 | [auth-and-authorization.instructions.md](auth-and-authorization.instructions.md) | JWT cookies, react-query-auth, RBAC, PBAC | `src/lib/auth.tsx`, `src/lib/authorization.tsx`, `src/features/auth/**` |
 | [error-handling.instructions.md](error-handling.instructions.md) | Axios interceptor, Error Boundaries, toast notifications | `src/components/errors/**`, `src/app/provider.tsx`, `src/lib/api-client.ts` |

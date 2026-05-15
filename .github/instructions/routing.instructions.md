@@ -1,16 +1,10 @@
 ---
-applyTo: "src/app/router.tsx,src/app/routes/**,src/pages/**,src/app/**/page.tsx,src/config/paths.ts"
+applyTo: "src/app/router.tsx,src/app/routes/**,src/config/paths.ts"
 ---
 
 # Routing
 
-## Three implementations — same URL structure, different mechanics
-
-| Impl | Router | Route definitions |
-|------|--------|-------------------|
-| react-vite | React Router v7 `createBrowserRouter` | `src/app/router.tsx` |
-| nextjs-app | Next.js App Router | `src/app/**/page.tsx` files |
-| nextjs-pages | Next.js Pages Router | `src/pages/**/*.tsx` files |
+## Router: React Router v7 `createBrowserRouter` — `src/app/router.tsx`
 
 ## URL structure (all three)
 
@@ -114,39 +108,6 @@ const DiscussionsRoute = () => {
 export default DiscussionsRoute;
 ```
 
-## Next.js App Router differences
-
-- No explicit route config — routing comes from the file system
-- Data prefetching happens in async Server Components using `queryClient.prefetchQuery` + `HydrationBoundary`
-- `src/app/layout.tsx` is the global root: wraps with `<AppProvider>` and prefetches current user
-- `export const dynamic = 'force-dynamic'` disables static rendering (data is user-specific)
-
-```ts
-// src/app/layout.tsx
-const RootLayout = async ({ children }: { children: ReactNode }) => {
-  const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(getUserQueryOptions());
-  return (
-    <html lang="en">
-      <body>
-        <AppProvider>
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            {children}
-          </HydrationBoundary>
-        </AppProvider>
-      </body>
-    </html>
-  );
-};
-export const dynamic = 'force-dynamic';
-```
-
-## Next.js Pages Router differences
-
-- `src/pages/_app.tsx` wraps everything with `<AppProvider>`
-- Per-page layouts via `getLayout` pattern on the page component
-- No server-side data prefetching at the router level — data fetching in components
-
 ## Protected routes
 
 In react-vite, `ProtectedRoute` lives in `src/lib/auth.tsx`:
@@ -163,4 +124,4 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 };
 ```
 
-In Next.js apps, protection is handled per-page/layout using `useUser()` or middleware.
+
